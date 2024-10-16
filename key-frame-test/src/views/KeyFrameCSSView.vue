@@ -42,7 +42,7 @@
       }
   
       knobColor.value = determineKnobColor(displayValue.value);
-      setTimeout(step, 50);
+      setTimeout(step, 10);
     };
   
     step();
@@ -59,9 +59,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .knob {
+}
+
+.knob {
     position: relative;
     width: 200px;
     height: 200px;
@@ -73,31 +73,42 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .knob::before {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.5s ease;
+}
+
+.knob::before {
     content: '';
     position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 180px;
-    height: 180px;
+    top: 12px;
+    left: 12px;
+    width: 176px;
+    height: 176px;
     border-radius: 50%;
-    background-color: white;
+    background: radial-gradient(circle, white, #f0f0f0);
     z-index: 1;
-  }
-  
-  .knob-value {
+    box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.knob-value {
     position: absolute;
     z-index: 2;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
-  }
-  
-  .current-value-text {
+    color: #333;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.knob-value:hover {
+    transform: scale(1.1);
+}
+
+.current-value-text {
     font-size: 1.5rem;
     margin-top: 20px;
     font-weight: bold;
-  }
+    color: #444;
+}
   </style>
   
